@@ -3,10 +3,6 @@
 - This is nextjs frontend with integration of Moralis indexer for indexing marketplace events.
 - Nextjs API feature is also used in this code for recieving event Notifications.
 
-## Acknowledgements
-
-- [Free Code Camp](https://www.freecodecamp.org/)
-
 ## Features
 
 - Listing NFT for sale
