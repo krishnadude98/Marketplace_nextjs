@@ -5,6 +5,7 @@
 
 ## Features
 
+- Mint NFT
 - Listing NFT for sale
 - Modifying NFT listing Price
 - Cancel NFT listing
