@@ -53,11 +53,6 @@ export default function Home() {
                         price={nft.price}
                         nftAddress={nft.nftAddress}
                         tokenId={nft.tokenId}
-                        marketplaceAddress={
-                          networkMapping[chainId ? chainId : 11155111][
-                            "nftMarketplace"
-                          ][0]
-                        }
                         buyedBy={nft.buyer}
                         listedAt={nft.createdAt}
                         key={`${nft.nftAddress}${nft.tokenId}`}

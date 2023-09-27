@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useWeb3Contract, useMoralis } from "react-moralis";
+import { useWeb3Contract, useMoralis, useChain } from "react-moralis";
 import nftMarketplaceAbi from "../constants/NftMarketplace.json";
-
+import networkMapping from "../constants/networkMapping";
 import Image from "next/image";
 import { Card, useNotification } from "web3uikit";
 import { ethers } from "ethers";
@@ -24,8 +24,6 @@ export default function NftBoxSold({
   price,
   nftAddress,
   tokenId,
-  marketplaceAddress,
-
   buyedBy,
   listedAt,
 }) {
@@ -33,7 +31,13 @@ export default function NftBoxSold({
   const [imageUri, setImageUrl] = useState("");
   const [tokenName, setTokenName] = useState("");
   const [tokenDescription, setTokenDescription] = useState("");
-
+  const { chain, chainId } = useChain();
+  let marketplaceAddress;
+  if (chainId != null) {
+    const readableChainId = parseInt(chainId, 16).toString();
+    marketplaceAddress =
+      networkMapping[chainId ? readableChainId : 11155111]["nftMarketplace"][0];
+  }
   const { error, runContractFunction: getTokenUri } = useWeb3Contract({
     abi: nftMarketplaceAbi,
     contractAddress: nftAddress,
