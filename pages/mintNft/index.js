@@ -1,19 +1,18 @@
 import { useNotification } from "web3uikit";
 import nftMarketplaceAbi from "../../constants/NftMarketplace.json";
 import { useWeb3Contract } from "react-moralis";
-import { useChain } from "react-moralis";
+import { useChain, useMoralis } from "react-moralis";
 import networkMapping from "../../constants/networkMapping.json";
 import { ethers } from "ethers";
-import { useMoralis } from "react-moralis";
 import styles from "@/styles/Home.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Bell } from "@web3uikit/icons";
 import axios from "axios";
 
-export default function mintNft() {
+export default function MintNft() {
   const API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY;
   const PINATA_SECRET_API_KEY = process.env.NEXT_PUBLIC_PINATA_SECRET_API_KEY;
-  const { web3, isWeb3Enabled } = useMoralis();
+  const { isWeb3Enabled } = useMoralis();
   const [file, setFile] = useState(null);
   const [isPinning, setIsPinning] = useState("");
   const [getUrl, setUrl] = useState("");
