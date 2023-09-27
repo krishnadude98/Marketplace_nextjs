@@ -19,9 +19,8 @@ export default function Home() {
   const { isWeb3Enabled } = useMoralis();
 
   async function getListings() {
-    let listings = await fetch("/api/getListing");
+    let listings = await fetch("/api/getListing/");
     let res = await listings.json();
-    console.log(res.data);
     if (listings.length != 0) {
       setListings(res.data);
     }
